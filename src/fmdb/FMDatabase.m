@@ -558,7 +558,7 @@ static int FMDBDatabaseBusyHandler(void *f, int count) {
     
     // FIXME - someday check the return codes on these binds.
     else if ([obj isKindOfClass:[NSData class]]) {
-        const void *bytes = [obj bytes];
+        const void *bytes = [(NSData *)obj bytes];
         if (!bytes) {
             // it's an empty NSData object, aka [NSData data].
             // Don't pass a NULL pointer, or sqlite will bind a SQL null instead of a blob.
